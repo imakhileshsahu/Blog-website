@@ -16,7 +16,7 @@ const BlogDetail = () => {
   const singleBlog = () => {
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/get-blog/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/allpost/${id}`,
         //{},
         {
           withCredentials: true,

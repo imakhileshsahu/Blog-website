@@ -34,7 +34,7 @@ const EditPost = () => {
   const singleBlog = () => {
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/get-blog/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/allpost/${id}`,
         //{},
         {
           withCredentials: true,
@@ -75,7 +75,7 @@ const EditPost = () => {
     };
     axios
       .put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/update-blog/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/updatepost/${id}`,
         { ...body },
         {
           withCredentials: true,

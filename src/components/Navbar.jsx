@@ -8,7 +8,7 @@ const Navbar = () => {
   const logOut = () => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/logout`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/login`,
         {},
         {
           withCredentials: true,

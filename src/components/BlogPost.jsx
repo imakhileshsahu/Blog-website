@@ -8,7 +8,7 @@ const BlogPost = () => {
     setLoading(true);
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/get-blog`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/allpost`,
         //{},
         {
           withCredentials: true,

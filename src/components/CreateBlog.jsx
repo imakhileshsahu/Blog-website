@@ -54,7 +54,7 @@ const CreateBlog = () => {
     };
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/create-blog`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/post`,
         { ...body },
         {
           withCredentials: true,

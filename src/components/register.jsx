@@ -32,13 +32,14 @@ const Register = () => {
   const [openSnackbar] = useSnackbar(options);
   const onSubmit = (data) => {
     setLoading(true);
-    const body = {
-      ...data,
-      //phone: parseInt(data.phone),
-    };
+    // const body = {
+    //   ...data,
+    //   //phone: parseInt(data.phone),
+    // };
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, { ...body })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, { ...data })
       .then(function (response) {
+        console.log("This",response);
         // handle success
         setLoading(false);
         setMessage(response?.data?.message);

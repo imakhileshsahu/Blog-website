@@ -32,14 +32,14 @@ const Login = () => {
   const [openSnackbar, closeSnackbar] = useSnackbar(options);
   const onSubmit = (data) => {
     setLoading(true);
-    const body = {
-      ...data,
-      //phone: parseInt(data.phone),
-    };
+    // const body = {
+    //   ...data,
+    //   //phone: parseInt(data.phone),
+    // };
     axios
       .post(
         `${process.env.REACT_APP_BACKEND_URL}/api/login`,
-        { ...body },
+        { ...data },
         {
           withCredentials: true,
         }

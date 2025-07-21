@@ -28,7 +28,7 @@ const PersonalBlog = () => {
     setLoading(true);
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/unique-blog`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/uniquepost`,
 
         {
           withCredentials: true,
@@ -66,7 +66,7 @@ const PersonalBlog = () => {
     setDeleteLoading(true);
     axios
       .delete(
-        `${process.env.REACT_APP_BACKEND_URL}/api/delete-blog/${blog.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/deletepost/${blog.id}`,
 
         {
           withCredentials: true,

@@ -289,7 +289,7 @@ const Register = () => {
                   {loading ? "Loading..." : "Sign up"}
                 </button>
                 <div className="text-center text-sm pt-1">
-                  Already have an account? <Link to="login">Login</Link>
+                  Already have an account? <Link to="/login">Login</Link>
                 </div>
               </div>
             </form>

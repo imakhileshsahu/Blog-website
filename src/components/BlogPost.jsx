@@ -11,7 +11,10 @@ const BlogPost = () => {
         `${process.env.REACT_APP_BACKEND_URL}/api/allpost`,
         //{},
         {
-          withCredentials: true,
+          // withCredentials: true,
+          headers: {
+           Authorization: `Bearer ${localStorage.getItem("token")}`, // 👈 add token
+          },
         }
       )
       .then(function (response) {
@@ -61,7 +64,7 @@ const BlogPost = () => {
                     </a>
                   </h1>
                   <p class="text-grey-darker text-sm">
-                    {new Date(blog?.CreatedAt).toLocaleString()}
+                    {/* {new Date.toLocaleString()} */}
                   </p>
                 </header>
 

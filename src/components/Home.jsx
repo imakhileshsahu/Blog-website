@@ -52,12 +52,12 @@ const Home = () => {
 
       <BlogPost />
 
-      {/* <div className="pt-10 text-3xl font-medium text-center">
+      <div className="pt-10 text-3xl font-medium text-center">
         {loading ? "The System is logging you out" : "Welcome Home"}{" "}
         <span className="font-bold">
           {userData?.first_name} {userData?.last_name}
         </span>
-      </div> */}
+      </div>
     </>
   );
 };

@@ -8,7 +8,7 @@ const Navbar = () => {
   const logOut = () => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/logout`,
         {},
         {
           withCredentials: true,
@@ -33,11 +33,20 @@ const Navbar = () => {
         // always executed
       });
   };
-  useEffect(() => {
+  // useEffect(() => {
+  //   const User = localStorage.getItem("user");
+  //   const parseUser = JSON.parse(User);
+  //   setUserData(User);
+  // }, [userData]);
+
+ useEffect(() => {
     const User = localStorage.getItem("user");
-    const parseUser = JSON.parse(User);
-    setUserData(User);
-  }, [userData]);
+    if (User) {
+      const parseUser = JSON.parse(User);
+      setUserData(parseUser);
+    }
+  }, []); // ✅ only run once on mount
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -57,7 +66,7 @@ const Navbar = () => {
 
       <label
         className="block lg:hidden cursor-pointer flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
-        for="menu-toggle"
+        htmlFor="menu-toggle"
       >
         <svg
           className="fill-current h-3 w-3"
@@ -105,7 +114,7 @@ const Navbar = () => {
             onClick={logOut}
             className="block mt-4 text-base lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer"
           >
-            {userData ? " Log Out" : "Login"}
+            {userData ? " Log Out" : "Logout"}
           </div>
         </div>
       </div>

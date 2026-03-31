@@ -19,7 +19,10 @@ const BlogDetail = () => {
         `${process.env.REACT_APP_BACKEND_URL}/api/allpost/${id}`,
         //{},
         {
-          withCredentials: true,
+          // withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // 👈 add token
+          },
         }
       )
       .then(function (response) {

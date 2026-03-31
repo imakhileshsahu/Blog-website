@@ -48,7 +48,9 @@ const CreateBlog = () => {
     const body = {
       ...data,
       image: imageData,
-      userid: userData.id,
+      // userid: userData.id,
+      user_id: Number(userData.id), // 👈 match backend, ensure number
+
 
       //phone: parseInt(data.phone),
     };
@@ -63,7 +65,7 @@ const CreateBlog = () => {
       .then(function (response) {
         // handle success
         setLoading(false);
-        navigate("/home");
+        navigate("/personal");
       })
       .catch(function (error) {
         setLoading(false);
@@ -73,23 +75,38 @@ const CreateBlog = () => {
       });
   };
 
+  // const handleImage = (e) => {
+  //   const file = e.target.files[0];
+  //   const size = file.size / 1024;
+  //   setImageUpload(e.target.files[0]);
+
+  //   // data.append("image", file);
+  //   const reader = new FileReader();
+  //   reader.onloadend = function () {
+  //     setImage({ [e.target.name]: reader.result });
+
+  //     //setPreview({ ...preview, [e.target.name]: reader.result });
+  //   };
+  //   if (e.target.files[0]) {
+  //     reader.readAsDataURL(e.target.files[0]);
+  //     e.target.value = null;
+  //   }
+  // };
+
   const handleImage = (e) => {
-    const file = e.target.files[0];
-    const size = file.size / 1024;
-    setImageUpload(e.target.files[0]);
+  const file = e.target.files[0];
+  if (!file) return;
 
-    // data.append("image", file);
-    const reader = new FileReader();
-    reader.onloadend = function () {
-      setImage({ [e.target.name]: reader.result });
+  setImageUpload(file);
 
-      //setPreview({ ...preview, [e.target.name]: reader.result });
-    };
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]);
-      e.target.value = null;
-    }
+  const reader = new FileReader();
+  reader.onloadend = function () {
+    setImage({ image: reader.result }); // ✅ safe, no e.target here
   };
+
+  reader.readAsDataURL(file);
+  e.target.value = null; // reset input so same file can be re-selected
+};
 
   const uploadImage = () => {
     let formData = new FormData(); //formdata object

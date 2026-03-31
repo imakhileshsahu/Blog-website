@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 
 import BlogPost from "./BlogPost";
-const [loading, setLoading] = useState(false);
+
 const Home = () => {
   const [userData, setUserData] = useState();
   const [loading, setLoading] = useState(false); // ✅ ADD THIS

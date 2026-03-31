@@ -11,10 +11,10 @@ const BlogPost = () => {
         `${process.env.REACT_APP_BACKEND_URL}/api/allpost`,
         //{},
         {
-          // withCredentials: true,
-          headers: {
-           Authorization: `Bearer ${localStorage.getItem("token")}`, // 👈 add token
-          },
+          withCredentials: true,
+          // headers: {
+          //  Authorization: `Bearer ${localStorage.getItem("token")}`, // 👈 add token
+          // },
         }
       )
       .then(function (response) {

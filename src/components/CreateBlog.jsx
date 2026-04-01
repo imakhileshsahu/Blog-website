@@ -191,7 +191,7 @@ const CreateBlog = () => {
                   type="file"
                   name="image"
                   onChange={handleImage}
-                  visibility="hidden"
+                  // visibility="hidden"
                 />
                 <div className="flex flex-col">
                   <div className="pb-2">Upload Image</div>
@@ -228,11 +228,11 @@ const CreateBlog = () => {
             <div className="flex items-center justify-cente px-5">
               <button
                 className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-                type="submit"
+                type="button"
                 onClick={uploadImage}
                 disabled={loadingData}
               >
-                {loading ? "Loading..." : " upload image"}
+                {loadingData ? "Uploading..." : " Upload image"}
               </button>
             </div>
           </div>
@@ -246,6 +246,7 @@ const CreateBlog = () => {
                 Description
               </label>
               <textarea
+                id="grid-password"
                 rows="10"
                 name="desc"
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
